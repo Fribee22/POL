@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdio.h>
-#include <stdlib.h> // ZMIANA: To jest biblioteka do system("cls") w stylu C
+#include <stdlib.h> 
 
 using namespace std;
 
@@ -98,3 +98,4 @@ int main() {
         cin.get();    
     }
 }
+
