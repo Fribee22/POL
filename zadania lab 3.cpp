@@ -160,4 +160,59 @@ int main() {
 }
 
 ///////////zad6
+#include <iostream>
+#include <stdio.h>
+
+
+using namespace std;
+
+
+int main(){
+    float a;
+    float b;
+    int decyzja;
+    cin >> a;
+    cin >> b;
+    
+    float suma = a + b;
+    float odejmowanie = a - b;
+    float mnozenie = a * b;
+    float dzielenie = a/b;
+    
+    while(true){
+    if (a == 0|| b == 0){
+        cout << "suma: " << suma << endl;
+        cout << "odejmowanie: " << odejmowanie << endl;
+        cout << "mnozenie: " << mnozenie << endl;
+        cout << "dzielenie: nie można dzielić przez 0 " << endl;
+    }
+    else {
+        cout << "suma: " << suma << endl;
+        cout << "odejmowanie: " << odejmowanie << endl;
+        cout << "mnozenie: " << mnozenie << endl;
+        cout << "dzielenie: " << dzielenie << endl;
+        
+        
+    }
+    
+    cout << "czy zakonczyc 1-tak|2-nie" << endl;
+    cin >> decyzja;
+    
+    if (decyzja == 1){
+        cout << "program zakonczony" << endl;
+        
+        return 0;
+    }
+    
+    
+    
+    
+
+    
+}
+}
+
+
+
+
 
