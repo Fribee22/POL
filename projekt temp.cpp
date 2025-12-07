@@ -1,7 +1,9 @@
 #include <iostream>
 #include <stdio.h>
+#include <stdlib.h> // ZMIANA: To jest biblioteka do system("cls") w stylu C
 
 using namespace std;
+
 
 float FtoC(float stopnie);
 float FtoK(float stopnie);
@@ -10,114 +12,89 @@ float CtoK(float stopnie);
 float KtoC(float stopnie);
 float KtoF(float stopnie);
 
-float CtoF(float stopnie) {
-	float C = stopnie;
-	float wynik = C * (9.0 / 5.0) + 32.0;
-	return wynik;
-}
-float CtoK(float stopnie) {
-	float C = stopnie;
-	float wynik = C + 273.15;
-	return wynik;
-}
-float FtoC(float stopnie) {
-	float F = stopnie;
-	float wynik = (5.0 / 9.0) * (F - 32.0);
-	return wynik;
-}
-float FtoK(float stopnie) {
-	float F = stopnie;
-	float wynik = (F + 459.67) * (5.0 / 9.0);
-	return wynik;
-}
-float KtoC(float stopnie) {
-	float K = stopnie;
-	float wynik = K - 273.15;
-	return wynik;
-}
-float KtoF(float stopnie) {
-	float K = stopnie;
-	float wynik = K * (9.0 / 5.0) - 459.67;
-	return wynik;
+
+float check(float temp, char stopnie) {
+    if (stopnie == 'K' && temp < 0) return -999.0;
+    else if (stopnie == 'C' && temp < -273.15) return -999.0;
+    else if (stopnie == 'F' && temp < -459.67) return -999.0;
+    return temp;
 }
 
 
-
-
-
+float CtoF(float stopnie) { return stopnie * (9.0 / 5.0) + 32.0; }
+float CtoK(float stopnie) { return stopnie + 273.15; }
+float FtoC(float stopnie) { return (5.0 / 9.0) * (stopnie - 32.0); }
+float FtoK(float stopnie) { return (stopnie + 459.67) * (5.0 / 9.0); }
+float KtoC(float stopnie) { return stopnie - 273.15; }
+float KtoF(float stopnie) { return stopnie * (9.0 / 5.0) - 459.67; }
 
 int main() {
-	float stopnie;
+    float stopnie;
+    int wybor;
 
+    
+    while (true) {
+        
+        system("cls"); 
 
-	int wybor;
-	cout << "1. przelicz Fahr na Celsius \n";
-	cout << "2. przelicz Fahr na Kelwin \n";
-	cout << "3. przelicz Celsius na Fahr \n";
-	cout << "4. przelicz Celsius na Kelwin\n";
-	cout << "5. przelicz Kelwin na Fahr \n";
-	cout << "6. przelicz kelwin na Celsius \n";
-	cout << "7. koniec programu \n";
+        cout << "=== MENU KONWERSJI TEMPERATUR ===" << endl;
+        cout << "1. przelicz Fahr na Celsius \n";
+        cout << "2. przelicz Fahr na Kelwin \n";
+        cout << "3. przelicz Celsius na Fahr \n";
+        cout << "4. przelicz Celsius na Kelwin\n";
+        cout << "5. przelicz Kelwin na Fahr \n";
+        cout << "6. przelicz kelwin na Celsius \n";
+        cout << "7. KONIEC PROGRAMU \n";
+        cout << "=================================" << endl;
 
-	cout << "wybierz numer: ";
-	cin >> wybor;
-	if (wybor > 7) {
-		cout << "cos poszlo nie tak" << endl;
+        cout << "wybierz numer: ";
+        cin >> wybor;
 
+       
+        if (wybor == 7) {
+            return 0; 
+        }
 
-	}
-	else if (wybor == 7) {
-		cout << "koniec programu" << endl;
+        
+        if (wybor < 1 || wybor > 7) {
+            cout << "Nie ma takiej opcji w menu!" << endl;
+        } 
+        else {
+            
+            cout << "podaj temperature do przeliczenia: ";
+            cin >> stopnie;
 
+            
+            char skalaWejsciowa;
+            if (wybor == 1 || wybor == 2) skalaWejsciowa = 'F';
+            else if (wybor == 3 || wybor == 4) skalaWejsciowa = 'C';
+            else skalaWejsciowa = 'K';
 
-	}
-	else {
-		cout << "podaj temperature do przeliczenia: ";
-		cin >> stopnie;
-	}
+            
+            float wynikCheck = check(stopnie, skalaWejsciowa);
 
-	switch (wybor) {
-	case 1:
-		cout << "przelicz " << stopnie << " Fahr -> Celsius " << FtoC(stopnie) << endl;
-		break;
-	case 2:
-		cout << "przelicz " << stopnie << " Fahr -> Kelwin " << FtoK(stopnie) << endl;
-		break;
-	case 3:
-		cout << "przelicz " << stopnie << " Celsius -> Fahr " << CtoF(stopnie) << endl;
-		break;
-	case 4:
-		cout << "przelicz " << stopnie << " Celsius -> Kelwin " << CtoK(stopnie) << endl;
-		break;
-	case 5:
-		cout << "przelicz " << stopnie << " Kelwin->Celsius " << KtoC(stopnie) << endl;
-		break;
-	case 6:
-		cout << "przelicz " << stopnie << " Kelwin->Fahr" << KtoF(stopnie) << endl;
-		break;
-	default:
-		cout << "Nieznana opcja." << endl;
-	}
+            if (wynikCheck == -999.0f) {
+                
+                cout << "\nBLAD: Nie ma takiej temperatury!" << endl;
+                
+            } else {
+                
+                cout << "\nWynik: ";
+                switch (wybor) {
+                    case 1: cout << stopnie << " F = " << FtoC(stopnie) << " C"; break;
+                    case 2: cout << stopnie << " F = " << FtoK(stopnie) << " K"; break;
+                    case 3: cout << stopnie << " C = " << CtoF(stopnie) << " F"; break;
+                    case 4: cout << stopnie << " C = " << CtoK(stopnie) << " K"; break;
+                    case 5: cout << stopnie << " K = " << KtoF(stopnie) << " F"; break;
+                    case 6: cout << stopnie << " K = " << KtoC(stopnie) << " C"; break;
+                }
+                cout << endl;
+            }
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
+        cout << "\nNacisnij ENTER, aby wrocic do menu...";
+        cin.ignore(); 
+        cin.get();    
+    }
 }
-
-
-
