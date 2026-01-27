@@ -1,4 +1,4 @@
-﻿#include "headerFile.h"
+#include "headerFile.h"
 
 int main()
 {
@@ -204,7 +204,7 @@ void pokazHistorie() {
         return;
     }
 
-    cout << "\n--- WYNIKI ---" << endl;
+    cout << "\nWYNIKI" << endl;
     bool znalezionoCokolwiek = false;
 
     for (int i = 0; i < dataCounter; i += 2) {
