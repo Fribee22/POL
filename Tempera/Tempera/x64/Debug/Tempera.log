@@ -1,0 +1,9 @@
+﻿  Tempera.cpp
+C:\Users\antek\OneDrive\Desktop\Tempera\Tempera.cpp(6,15): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+C:\Users\antek\OneDrive\Desktop\Tempera\Tempera.cpp(422,47): warning C4244: "return": konwersja z "double" do "float", możliwa utrata danych
+C:\Users\antek\OneDrive\Desktop\Tempera\Tempera.cpp(423,49): warning C4244: "return": konwersja z "double" do "float", możliwa utrata danych
+C:\Users\antek\OneDrive\Desktop\Tempera\Tempera.cpp(424,44): warning C4244: "return": konwersja z "double" do "float", możliwa utrata danych
+C:\Users\antek\OneDrive\Desktop\Tempera\Tempera.cpp(425,32): warning C4244: "return": konwersja z "double" do "float", możliwa utrata danych
+C:\Users\antek\OneDrive\Desktop\Tempera\Tempera.cpp(426,32): warning C4244: "return": konwersja z "double" do "float", możliwa utrata danych
+C:\Users\antek\OneDrive\Desktop\Tempera\Tempera.cpp(427,44): warning C4244: "return": konwersja z "double" do "float", możliwa utrata danych
+  Tempera.vcxproj -> C:\Users\antek\OneDrive\Desktop\Tempera\x64\Debug\Tempera.exe

@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Tempera.vcxproj" Id="c7ea7681-419a-4b50-924f-3c8ab943fc03" />
+</Solution>
